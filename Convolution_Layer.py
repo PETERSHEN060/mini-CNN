@@ -24,44 +24,30 @@ class ConvolutionLayer:
         对 input matrix 进行 padding，然后赋值给 self.padded_input。
         返回 padding 后的 DataMatrix
         """
+        # ----赋值----
         input_image = self.input.image
-
         channel = input_image.shape[0]
         height = input_image.shape[1]
         width = input_image.shape[2]
 
         padding = self.padding
 
-        # padding = 0，不补边，直接复制原图
+        # ---- padding = 0，直接返回原图----
         if padding == 0:
             self.padded_input = Data_Sturcture.DataMatrix(
-                input_image.copy(),
-                self.input.label
-            )
+                input_image.copy(),self.input.label)
             return self.padded_input
 
         # 创建一个全 0 的新矩阵
         padded_image = np.zeros(
-            (
-                channel,
-                height + 2 * padding,
-                width + 2 * padding
-            ),
-            dtype=np.float32
-        )
-
+            (channel, height + 2 * padding,
+                width + 2 * padding), dtype=np.float32)
         # 把原图放到中间
-        padded_image[
-            :,
-            padding:padding + height,
-            padding:padding + width
-        ] = input_image
+        padded_image[ : , padding:padding + height,
+            padding:padding + width] = input_image
 
         # 存成 DataMatrix
-        self.padded_input = Data_Sturcture.DataMatrix(
-            padded_image,
-            self.input.label
-        )
+        self.padded_input = Data_Sturcture.DataMatrix(padded_image, self.input.label)
 
         return self.padded_input
 
@@ -139,7 +125,6 @@ class ConvolutionLayer:
                 output_matrix[0, out_row, out_col] = conv_value
 
         # 存成 FeatureMap类并返回
-        self.convolution_output = FeatureMap(
-            output_matrix, self.input.label)
+        self.convolution_output = FeatureMap(output_matrix, self.input.label)
         return self.convolution_output
 

@@ -98,7 +98,7 @@ def read_mnist_dataset(image_file_path,
             label = int.from_bytes(label_byte, byteorder="big")
 
             # 存成 PicutreMatrix 对象
-            picture = PicutreMatrix(image, label)
+            picture = DataMatrix(image, label)
 
             dataset.append(picture)
 
