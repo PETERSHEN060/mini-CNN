@@ -104,23 +104,3 @@ def read_mnist_dataset(image_file_path,
 
     return dataset
 
-
-if __name__ == "__main__":
-    train_images_path = "train-images-idx3-ubyte.gz"
-    train_labels_path = "train-labels-idx1-ubyte.gz"
-
-    # 先读取前 5 张测试一下
-    train_dataset = read_mnist_dataset(
-        train_images_path,
-        train_labels_path,
-        limit=5
-    )
-
-    print("读取完成，数据数量：", len(train_dataset))
-
-    first_picture = train_dataset[0]
-
-    first_picture.show_info()
-
-    print("\n第一张图片的字符显示：")
-    first_picture.show_ascii()
