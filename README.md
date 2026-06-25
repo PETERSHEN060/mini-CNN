@@ -1,4 +1,4 @@
-# 手写 CNN 数字识别项目
+# 手搓 CNN 数字识别项目
 
 本项目使用 Python 和 NumPy 从零实现了一个简单的卷积神经网络，用于识别 MNIST 手写数字图片。项目没有使用 PyTorch、TensorFlow 等深度学习框架，主要目的是理解 CNN 的前向传播、反向传播和参数更新过程。
 
@@ -13,7 +13,7 @@
 * `CNNNetwork.py`：封装完整 CNN 网络
 * `train.py`：训练模型
 * `main.py`读取图片进行预测
-* 'data_set' 文件夹放置数据集
+* `data_set` 文件夹放置数据集
 * `model`用于存放已训练的模型参数
 
 ## 网络结构
